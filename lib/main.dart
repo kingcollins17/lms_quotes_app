@@ -6,15 +6,16 @@ import 'package:lms_quotes_app/screens/login_screen.dart';
 
 import 'firebase_options.dart';
 
-void main() async {
+import 'controllers/controller.dart';
 
+void main() async {
   try {
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
     runApp(QuotesApp());
-  }  catch (e) {
+  } catch (e) {
     runApp(ShowError(error: e));
   }
 }
@@ -24,6 +25,10 @@ class QuotesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut(() => AuthController());
+
+    Get.lazyPut(() => QuotesController());
+
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

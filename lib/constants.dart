@@ -5,6 +5,7 @@ final heather = Color(0xFFAFBCC4);
 final stardust = Color(0xFF9E9E9E);
 
 
+const dummyJsonUrl = 'https://dummyjson.com';
 
 Widget spacer({double x = 5.0, double y = 5.0}) => SizedBox(height: y, width: x);
 
