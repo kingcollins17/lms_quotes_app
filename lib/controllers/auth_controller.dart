@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../screens/screens.dart';
+
 class AuthController extends GetxController {
   final FirebaseAuth _auth;
 
@@ -31,6 +33,7 @@ class AuthController extends GetxController {
       isLoading.value = true;
       final cred = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       isLoading.value = false;
+      Get.off(QuotesListScreen());
       Get.snackbar(
         'Sign up successful',
         'You are successfully signed up as $email',
@@ -47,6 +50,9 @@ class AuthController extends GetxController {
       isLoading.value = true;
       final cred = await _auth.signInWithEmailAndPassword(email: email, password: password);
       isLoading.value = false;
+
+      Get.off(QuotesListScreen());
+
       Get.snackbar('Message', 'Welcome, you are now signed in as ${user?.email ?? ""}');
     } on FirebaseAuthException catch (e) {
       isLoading.value = false;

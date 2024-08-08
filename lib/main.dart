@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:lms_quotes_app/constants.dart';
-import 'package:lms_quotes_app/screens/login_screen.dart';
+import 'package:lms_quotes_app/controllers/quotes_controller.dart';
+
+//import 'package:lms_quotes_app/screens/screens.dart';
+import 'screens/screens.dart';
+
 
 import 'firebase_options.dart';
 
@@ -26,7 +30,6 @@ class QuotesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.lazyPut(() => AuthController());
-
     Get.lazyPut(() => QuotesController());
 
     return GetMaterialApp(
