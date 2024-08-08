@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lms_quotes_app/constants.dart';
@@ -41,7 +39,7 @@ class _AuthFormState extends State<AuthForm> {
 
     final isLogin = widget.type == 'login';
 
-    final loadingIndicator = SizedBox.square(
+    const loadingIndicator = SizedBox.square(
       dimension: 23.0,
       child: CircularProgressIndicator(
         color: Colors.white,
@@ -53,7 +51,7 @@ class _AuthFormState extends State<AuthForm> {
     final controller = Get.find<AuthController>();
     return Container(
       width: screen(context).width * 0.85,
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(6),
@@ -64,7 +62,7 @@ class _AuthFormState extends State<AuthForm> {
             children: [
               Text(
                 isLogin ? 'Login' : 'Register',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
@@ -100,7 +98,7 @@ class _AuthFormState extends State<AuthForm> {
                         ? loadingIndicator
                         : Text(
                             isLogin ? 'Login' : 'Register',
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w400,
                             ),
@@ -117,7 +115,7 @@ class _AuthFormState extends State<AuthForm> {
                 },
                 child: Text(
                   isLogin ? noAccount : hasAccount,
-                  style: TextStyle(fontSize: 16, color: cerulean),
+                  style: const TextStyle(fontSize: 16, color: cerulean),
                 ),
               )
             ],
@@ -128,7 +126,6 @@ class _AuthFormState extends State<AuthForm> {
 
 class _InputField extends StatelessWidget {
   const _InputField({
-    super.key,
     required this.label,
     this.obscureText = false,
     this.suffixIcon,
@@ -148,13 +145,13 @@ class _InputField extends StatelessWidget {
       decoration: InputDecoration(
         labelText: label,
         suffixIcon: (suffixIcon != null)
-            ? Padding(padding: EdgeInsets.symmetric(horizontal: 6), child: suffixIcon)
+            ? Padding(padding: const EdgeInsets.symmetric(horizontal: 6), child: suffixIcon)
             : null,
-        border: OutlineInputBorder(),
-        enabledBorder: OutlineInputBorder(
+        border: const OutlineInputBorder(),
+        enabledBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: Colors.grey),
         ),
-        contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
       ),
     );
   }

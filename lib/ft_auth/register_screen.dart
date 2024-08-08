@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lms_quotes_app/constants.dart';
@@ -28,7 +29,7 @@ class RegisterScreen extends GetWidget<AuthController> {
           children: [
             AuthForm(
               type: 'register',
-              loginScreen: LoginScreen(),
+              loginScreen: const LoginScreen(),
               onSubmit: onSubmit,
             ),
           ],

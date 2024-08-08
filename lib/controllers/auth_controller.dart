@@ -1,8 +1,6 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:lms_quotes_app/screens.dart';
 
 class AuthController extends GetxController {
   final FirebaseAuth _auth;
@@ -18,14 +16,14 @@ class AuthController extends GetxController {
   final Rx<String?> notification = 'Welcome, '.obs;
 
   AuthController({FirebaseAuth? auth, this.inTestMode = false})
-      : this._auth = auth ?? FirebaseAuth.instance;
+      : _auth = auth ?? FirebaseAuth.instance;
 
   void notify(String value) {
     notification.value = value;
     Get.snackbar(
       'Notification',
       notification.value!,
-      duration: Duration(seconds: 6),
+      duration: const Duration(seconds: 6),
     );
   }
 
@@ -40,7 +38,7 @@ class AuthController extends GetxController {
 
       /// if not in test mode
       if (!inTestMode) {
-        Get.off(QuotesListScreen());
+        //Get.off(QuotesListScreen());
         Get.snackbar(
           'Sign up successful',
           'You are successfully signed up as $email',
@@ -60,7 +58,7 @@ class AuthController extends GetxController {
       isLoading.value = false;
       isAuthenticated.value = true;
       if (!inTestMode) {
-        Get.off(QuotesListScreen());
+        //Get.off(QuotesListScreen());
         Get.snackbar('Message', 'Welcome, you are now signed in as ${user?.email ?? ""}');
       }
     } on FirebaseAuthException catch (e) {
