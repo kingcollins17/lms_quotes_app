@@ -5,6 +5,7 @@ import 'package:lms_quotes_app/controllers/auth_controller.dart';
 import 'package:lms_quotes_app/screens/screens.dart';
 import 'package:lms_quotes_app/screens/shared_widgets/auth_form.dart';
 
+
 class RegisterScreen extends GetWidget<AuthController> {
   const RegisterScreen({super.key});
 

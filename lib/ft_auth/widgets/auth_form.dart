@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lms_quotes_app/constants.dart';
-import 'package:lms_quotes_app/controllers/auth_controller.dart';
+import 'package:lms_quotes_app/controllers/controller.dart';
 
 typedef OnSubmitAuthForm = void Function(String email, String password);
 

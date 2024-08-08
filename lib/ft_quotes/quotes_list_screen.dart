@@ -6,8 +6,9 @@ import 'package:get/get.dart';
 import 'package:lms_quotes_app/constants.dart';
 
 import 'package:http/http.dart' as http;
-import 'package:lms_quotes_app/controllers/quotes_controller.dart';
-import 'package:lms_quotes_app/screens/profile_dashboard_screen.dart';
+import 'package:lms_quotes_app/controllers/controller.dart';
+
+import 'package:lms_quotes_app/ft_profile/screens.dart';
 
 import '../repository/repository.dart';
 
@@ -62,8 +63,7 @@ class _SimpleDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
         child: Material(
-          color: Colors.white,
-    
+      color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(18.0),
         child: Column(
@@ -75,11 +75,11 @@ class _SimpleDrawer extends StatelessWidget {
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             )),
             InkWell(
-              onTap: () => Get.to(ProfileDashboardScreen()),
+                onTap: () => Get.to(ProfileDashboardScreen()),
                 child: Ink(
-                  width: screen(context).width * 0.8,
-                  padding: EdgeInsets.symmetric(horizontal: 6, vertical: 6),
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(6)),
+                    width: screen(context).width * 0.8,
+                    padding: EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(6)),
                     child: Text('Profile',
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))))
           ],
