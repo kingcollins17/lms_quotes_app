@@ -8,9 +8,9 @@ import 'package:lms_quotes_app/constants.dart';
 import 'package:http/http.dart' as http;
 import 'package:lms_quotes_app/controllers/controller.dart';
 
-import 'package:lms_quotes_app/ft_profile/screens.dart';
+import 'package:lms_quotes_app/repository/repository.dart';
 
-import '../repository/repository.dart';
+import 'package:lms_quotes_app/screens.dart';
 
 class QuotesListScreen extends StatelessWidget {
   const QuotesListScreen({super.key});
@@ -28,11 +28,17 @@ class QuotesListScreen extends StatelessWidget {
         backgroundColor: stardust,
         foregroundColor: Colors.white,
         title: Text(
-          'Quotes',
+          'Quotes me',
           style: TextStyle(
             color: Colors.white,
           ),
         ),
+        actions: [
+          GestureDetector(
+              onTap: () => Get.to(SearchListScreen()),
+              child: Icon(Icons.search, size: 25, color: Colors.white)),
+          spacer(x: 10)
+        ],
       ),
       drawer: _SimpleDrawer(),
       body: Obx(() {

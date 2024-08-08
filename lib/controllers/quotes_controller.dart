@@ -7,7 +7,11 @@ class QuotesController extends GetxController {
   final quotes = <Quote>[].obs;
   final isLoading = false.obs;
 
+  final searchResults = <Quote>[].obs;
+
   bool get hasQuotes => quotes.isNotEmpty;
+
+  bool get hasSearchResults => searchResults.isNotEmpty;
 
   QuotesController([QuotesRepository? repository])
       : this.repository = repository ?? QuotesRepository() {
@@ -24,5 +28,20 @@ class QuotesController extends GetxController {
     } finally {
       isLoading.value = false;
     }
+  }
+
+  Future<void> search(String query) async {
+    isLoading.value = true;
+    update();
+    await Future.delayed(const Duration(seconds: 2)); // simulate search
+    searchResults.assignAll(
+      quotes.where(
+        (arg) =>
+            arg.quote.toLowerCase().contains(query.toLowerCase()) ||
+            arg.author.toLowerCase().contains(query.toLowerCase()),
+      ),
+    );
+    isLoading.value = false;
+    update();
   }
 }

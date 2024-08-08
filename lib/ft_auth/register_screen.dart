@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lms_quotes_app/constants.dart';
-import 'package:lms_quotes_app/controllers/auth_controller.dart';
-import 'package:lms_quotes_app/screens/screens.dart';
-import 'package:lms_quotes_app/screens/shared_widgets/auth_form.dart';
+import 'package:lms_quotes_app/controllers/controller.dart';
+import 'package:lms_quotes_app/screens.dart';
 
+import 'widgets/widgets.dart';
 
 class RegisterScreen extends GetWidget<AuthController> {
   const RegisterScreen({super.key});

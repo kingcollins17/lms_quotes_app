@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../screens/screens.dart';
+import 'package:lms_quotes_app/screens.dart';
 
 class AuthController extends GetxController {
   final FirebaseAuth _auth;
