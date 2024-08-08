@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-final cerulean = Color(0xFF3F51B7);
-final heather = Color(0xFFAFBCC4);
-final stardust = Color(0xFF9E9E9E);
+const cerulean = Color(0xFF3F51B7);
+const heather = Color(0xFFAFBCC4);
+const stardust = Color(0xFF9E9E9E);
 
 
 const dummyJsonUrl = 'https://dummyjson.com';

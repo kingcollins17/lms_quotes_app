@@ -28,7 +28,7 @@ class RegisterScreen extends GetWidget<AuthController> {
           children: [
             AuthForm(
               type: 'register',
-              loginScreen: LoginScreen(),
+              loginScreen: const LoginScreen(),
               onSubmit: onSubmit,
             ),
           ],

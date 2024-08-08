@@ -1,16 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lms_quotes_app/constants.dart';
 
-import 'package:http/http.dart' as http;
 import 'package:lms_quotes_app/controllers/controller.dart';
 
 import 'package:lms_quotes_app/repository/repository.dart';
 
-import 'package:lms_quotes_app/screens.dart';
 
 class QuotesListScreen extends StatelessWidget {
   const QuotesListScreen({super.key});
@@ -35,7 +32,7 @@ class QuotesListScreen extends StatelessWidget {
         ),
         actions: [
           GestureDetector(
-              onTap: () => Get.to(SearchListScreen()),
+              //onTap: () => Get.to(SearchListScreen()),
               child: Icon(Icons.search, size: 25, color: Colors.white)),
           spacer(x: 10)
         ],
@@ -44,7 +41,7 @@ class QuotesListScreen extends StatelessWidget {
       body: Obx(() {
         final isLoading = controller.isLoading.value;
         final hasQuotes = controller.hasQuotes;
-        final quotes = controller.quotes.value;
+        final quotes = controller.quotes;
 
         return isLoading
             ? Center(child: loadingIndicator)
@@ -81,7 +78,7 @@ class _SimpleDrawer extends StatelessWidget {
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             )),
             InkWell(
-                onTap: () => Get.to(ProfileDashboardScreen()),
+                //onTap: () => Get.to(ProfileDashboardScreen()),
                 child: Ink(
                     width: screen(context).width * 0.8,
                     padding: EdgeInsets.symmetric(horizontal: 6, vertical: 6),

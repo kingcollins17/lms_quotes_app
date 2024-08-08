@@ -128,7 +128,6 @@ class _AuthFormState extends State<AuthForm> {
 
 class _InputField extends StatelessWidget {
   const _InputField({
-    super.key,
     required this.label,
     this.obscureText = false,
     this.suffixIcon,

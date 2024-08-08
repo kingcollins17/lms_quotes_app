@@ -14,7 +14,7 @@ class QuotesController extends GetxController {
   bool get hasSearchResults => searchResults.isNotEmpty;
 
   QuotesController([QuotesRepository? repository])
-      : this.repository = repository ?? QuotesRepository() {
+      : repository = repository ?? QuotesRepository() {
     getQuotes();
   }
 

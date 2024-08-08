@@ -14,7 +14,7 @@ void main() async {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    runApp(QuotesApp());
+    runApp(const QuotesApp());
   } catch (e) {
     runApp(ShowError(error: e));
   }
@@ -31,12 +31,12 @@ class QuotesApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.light(
+        colorScheme: const ColorScheme.light(
           primary: cerulean,
           secondary: heather,
         ),
       ),
-      home: LoginScreen(),
+      home: const LoginScreen(),
     );
   }
 }
