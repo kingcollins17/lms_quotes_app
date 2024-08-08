@@ -1,11 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lms_quotes_app/constants.dart';
 
-import 'package:http/http.dart' as http;
 import 'package:lms_quotes_app/controllers/controller.dart';
 
 import 'package:lms_quotes_app/repository/repository.dart';
@@ -44,7 +42,7 @@ class QuotesListScreen extends StatelessWidget {
       body: Obx(() {
         final isLoading = controller.isLoading.value;
         final hasQuotes = controller.hasQuotes;
-        final quotes = controller.quotes.value;
+        final quotes = controller.quotes;
 
         return isLoading
             ? Center(child: loadingIndicator)

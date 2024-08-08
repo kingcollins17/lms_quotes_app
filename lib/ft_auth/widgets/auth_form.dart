@@ -29,7 +29,7 @@ class _AuthFormState extends State<AuthForm> {
   String? email, password;
   final formKey = GlobalKey<FormState>();
 
-  bool _obscurePassword = false;
+  bool _obscurePassword = true;
   bool get obscurePassword => _obscurePassword;
 
   set obscurePassword(bool value) => setState(() => _obscurePassword = value);
@@ -70,10 +70,13 @@ class _AuthFormState extends State<AuthForm> {
                 ),
               ),
               spacer(y: 60),
-              _InputField(label: 'Email', onChanged: (value) => email=value),
+              _InputField(label: 'Email',
+                hint: 'jondoe@gmail.com',
+               onChanged: (value) => email=value),
               spacer(y: 15),
               _InputField(
                 label: 'Password',
+                hint: 'jondoepassword',
                 obscureText: obscurePassword,
                 onChanged: (value) => password = value,
                 suffixIcon: GestureDetector(
@@ -128,13 +131,14 @@ class _AuthFormState extends State<AuthForm> {
 
 class _InputField extends StatelessWidget {
   const _InputField({
-    super.key,
     required this.label,
     this.obscureText = false,
+    this.hint,
     this.suffixIcon,
     this.onChanged,
   });
   final String label;
+  final String? hint;
   final bool obscureText;
   final Widget? suffixIcon;
   final void Function(String value)? onChanged;
@@ -147,6 +151,7 @@ class _InputField extends StatelessWidget {
       validator: (value) => value == null || value.isEmpty ? '$label field is required' : null,
       decoration: InputDecoration(
         labelText: label,
+        hintText: hint,
         suffixIcon: (suffixIcon != null)
             ? Padding(padding: EdgeInsets.symmetric(horizontal: 6), child: suffixIcon)
             : null,

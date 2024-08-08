@@ -3,7 +3,6 @@ import 'package:lms_quotes_app/controllers/auth_controller.dart';
 import 'package:mockito/annotations.dart';
 import 'package:test/test.dart';
 
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 @GenerateNiceMocks([MockSpec<FirebaseAuth>(), MockSpec<User>(), MockSpec<UserCredential>()])

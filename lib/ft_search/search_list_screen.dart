@@ -8,6 +8,8 @@ import 'package:lms_quotes_app/constants.dart';
 import 'package:lms_quotes_app/screens.dart';
 
 class SearchListScreen extends GetWidget<QuotesController> {
+  const SearchListScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final loadingIndicator = Center(
@@ -30,7 +32,7 @@ class SearchListScreen extends GetWidget<QuotesController> {
                 //
                 Expanded(child: Obx(() {
                   final hasSearchResults = controller.hasSearchResults;
-                  final searchResults = controller.searchResults.value;
+                  final searchResults = controller.searchResults;
                   return hasSearchResults
                       ? ListView.builder(
                           itemCount: searchResults.length,

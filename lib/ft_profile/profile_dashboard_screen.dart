@@ -60,7 +60,7 @@ class ProfileDashboardScreen extends StatelessWidget {
 }
 
 class _ProfileItem extends StatelessWidget {
-  const _ProfileItem({super.key, required this.label, required this.value});
+  const _ProfileItem({required this.label, required this.value});
   final String label, value;
 
   @override
