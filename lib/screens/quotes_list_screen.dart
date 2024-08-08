@@ -7,6 +7,7 @@ import 'package:lms_quotes_app/constants.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:lms_quotes_app/controllers/quotes_controller.dart';
+import 'package:lms_quotes_app/screens/profile_dashboard_screen.dart';
 
 import '../repository/repository.dart';
 
@@ -22,32 +23,69 @@ class QuotesListScreen extends StatelessWidget {
     );
 
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: stardust,
-          title: Text(
-            'Quotes',
-            style: TextStyle(
-              color: Colors.white,
-            ),
+      appBar: AppBar(
+        backgroundColor: stardust,
+        foregroundColor: Colors.white,
+        title: Text(
+          'Quotes',
+          style: TextStyle(
+            color: Colors.white,
           ),
         ),
-        body: Obx(() {
-          final isLoading = controller.isLoading.value;
-          final hasQuotes = controller.hasQuotes;
-          final quotes = controller.quotes.value;
+      ),
+      drawer: _SimpleDrawer(),
+      body: Obx(() {
+        final isLoading = controller.isLoading.value;
+        final hasQuotes = controller.hasQuotes;
+        final quotes = controller.quotes.value;
 
-          return isLoading
-              ? Center(child: loadingIndicator)
-              : hasQuotes
-                  ? ListView.builder(
+        return isLoading
+            ? Center(child: loadingIndicator)
+            : hasQuotes
+                ? ListView.builder(
                     itemCount: quotes.length,
-                      itemBuilder: (context, i) => QuoteItem(
-                        data: quotes[i],
-                        showBorder: i != 0,
-                      ),
-                    )
-                  : Center(child: Text('No Quotes', style: TextStyle(fontSize: 18)));
-        }));
+                    itemBuilder: (context, i) => QuoteItem(
+                      data: quotes[i],
+                      showBorder: i != 0,
+                    ),
+                  )
+                : Center(
+                    child: Text('No Quotes', style: TextStyle(fontSize: 18)),
+                  );
+      }),
+    );
+  }
+}
+
+class _SimpleDrawer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+        child: Material(
+          color: Colors.white,
+    
+      child: Padding(
+        padding: const EdgeInsets.all(18.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            DrawerHeader(
+                child: Text(
+              'Quotes App 1.0',
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            )),
+            InkWell(
+              onTap: () => Get.to(ProfileDashboardScreen()),
+                child: Ink(
+                  width: screen(context).width * 0.8,
+                  padding: EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(6)),
+                    child: Text('Profile',
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))))
+          ],
+        ),
+      ),
+    ));
   }
 }
 
