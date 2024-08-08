@@ -9,13 +9,16 @@ class AuthController extends GetxController {
 
   User? get user => _auth.currentUser;
 
+  final bool inTestMode;
+
   final isLoading = false.obs;
 
   final isAuthenticated = false.obs;
 
   final Rx<String?> notification = 'Welcome, '.obs;
 
-  AuthController({FirebaseAuth? auth}) : this._auth = auth ?? FirebaseAuth.instance;
+  AuthController({FirebaseAuth? auth, this.inTestMode = false})
+      : this._auth = auth ?? FirebaseAuth.instance;
 
   void notify(String value) {
     notification.value = value;
@@ -33,16 +36,20 @@ class AuthController extends GetxController {
       isLoading.value = true;
       final cred = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       isLoading.value = false;
-      Get.off(QuotesListScreen());
-      
-      Get.snackbar(
-        'Sign up successful',
-        'You are successfully signed up as $email',
-        duration: const Duration(seconds: 7),
-      );
+      isAuthenticated.value = true;
+
+      /// if not in test mode
+      if (!inTestMode) {
+        Get.off(QuotesListScreen());
+        Get.snackbar(
+          'Sign up successful',
+          'You are successfully signed up as $email',
+          duration: const Duration(seconds: 7),
+        );
+      }
     } on FirebaseAuthException catch (e) {
       isLoading.value = false;
-      Get.snackbar('Sign up not successful', e.toString());
+      if (!inTestMode) Get.snackbar('Sign up not successful', e.toString());
     }
   }
 
@@ -51,17 +58,20 @@ class AuthController extends GetxController {
       isLoading.value = true;
       final cred = await _auth.signInWithEmailAndPassword(email: email, password: password);
       isLoading.value = false;
-
-      Get.off(QuotesListScreen());
-
-      Get.snackbar('Message', 'Welcome, you are now signed in as ${user?.email ?? ""}');
+      isAuthenticated.value = true;
+      if (!inTestMode) {
+        Get.off(QuotesListScreen());
+        Get.snackbar('Message', 'Welcome, you are now signed in as ${user?.email ?? ""}');
+      }
     } on FirebaseAuthException catch (e) {
       isLoading.value = false;
-      Get.snackbar(
-        'Something went wrong',
-        e.toString() + '\nPlease check that your email or password is correct',
-        duration: const Duration(seconds: 7),
-      );
+      if (!inTestMode) { //if not in test mode
+        Get.snackbar(
+          'Something went wrong',
+          '$e\nPlease check that your email or password is correct',
+          duration: const Duration(seconds: 7),
+        );
+      }
     }
   }
 
