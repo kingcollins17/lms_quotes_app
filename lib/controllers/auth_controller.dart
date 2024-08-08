@@ -34,6 +34,7 @@ class AuthController extends GetxController {
       final cred = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       isLoading.value = false;
       Get.off(QuotesListScreen());
+      
       Get.snackbar(
         'Sign up successful',
         'You are successfully signed up as $email',
