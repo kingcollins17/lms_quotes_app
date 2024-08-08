@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "154605611439",
+    "project_id": "locbyte-c3510",
+    "storage_bucket": "locbyte-c3510.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154605611439:android:a3f71069cec51c5635a75a",
+        "android_client_info": {
+          "package_name": "camp.kode.lms_quotes_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154605611439-12tdhvkagvcg6i6c8ealjkhkoee0imop.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsAOUwuE6M-8lqhfzkxF3qnqp1Tqs9zQY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154605611439-12tdhvkagvcg6i6c8ealjkhkoee0imop.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "154605611439-mqnm23mvjkh057rb55ioltmlqp3gsbk1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.locnetClient"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154605611439:android:79df9a4413a2fb3035a75a",
+        "android_client_info": {
+          "package_name": "com.example.locnet_client"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154605611439-12tdhvkagvcg6i6c8ealjkhkoee0imop.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsAOUwuE6M-8lqhfzkxF3qnqp1Tqs9zQY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154605611439-12tdhvkagvcg6i6c8ealjkhkoee0imop.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "154605611439-mqnm23mvjkh057rb55ioltmlqp3gsbk1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.locnetClient"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154605611439:android:9c2ca0743c21a92535a75a",
+        "android_client_info": {
+          "package_name": "dev.locbyte.google_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154605611439-12tdhvkagvcg6i6c8ealjkhkoee0imop.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsAOUwuE6M-8lqhfzkxF3qnqp1Tqs9zQY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154605611439-12tdhvkagvcg6i6c8ealjkhkoee0imop.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "154605611439-mqnm23mvjkh057rb55ioltmlqp3gsbk1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.locnetClient"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
